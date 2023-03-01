@@ -2,6 +2,7 @@
 .next
 dist
 node_modules
+yarn.lock
 
 #storybook
 storybook-static
