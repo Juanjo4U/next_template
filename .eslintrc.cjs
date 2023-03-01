@@ -15,7 +15,7 @@ module.exports = {
     node: true
   },
   extends: [
-    'plugin:react/recommended',
+    'plugin:storybook/recommended',
     'standard-with-typescript',
     'plugin:react/recommended',
     'plugin:react/jsx-runtime',
@@ -29,7 +29,15 @@ module.exports = {
       version: 'detect'
     }
   },
-  overrides: [],
+  overrides: [
+    {
+      files: ['*.stories.@(ts|tsx|js|jsx|mjs|cjs)'],
+      rules: {
+        // example of overriding a rule
+        'storybook/hierarchy-separator': 'error'
+      }
+    }
+  ],
   parserOptions: {
     project: ['./tsconfig.json'],
     ecmaVersion: 'latest',
@@ -59,7 +67,10 @@ module.exports = {
       {
         newlinesBetween: 'always',
         groups: ['/^next/', '/^react/', 'module', ['parent', 'sibling', 'index']],
-        alphabetize: { order: 'asc', ignoreCase: true }
+        alphabetize: {
+          order: 'asc',
+          ignoreCase: true
+        }
       }
     ],
     '@typescript-eslint/explicit-function-return-type': RULE_TYPE.OFF,
@@ -89,7 +100,12 @@ module.exports = {
     'unused-imports/no-unused-imports': RULE_TYPE.ERROR,
     'unused-imports/no-unused-vars': [
       RULE_TYPE.ERROR,
-      { vars: 'all', varsIgnorePattern: '^_', args: 'after-used', argsIgnorePattern: '^_' }
+      {
+        vars: 'all',
+        varsIgnorePattern: '^_',
+        args: 'after-used',
+        argsIgnorePattern: '^_'
+      }
     ]
   }
 }
