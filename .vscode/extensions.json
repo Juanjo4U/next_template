@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    /* THEME */
+    "PKief.material-icon-theme",
+    /* UTILITIES */
+    "eamodio.gitlens",
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint"
+  ]
+}
